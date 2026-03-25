@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAG’BEADS | Official Luxury Store</title>
+    <style>
+        :root { --deep-black: #050505; --card-bg: #111; --magic-purple: #bb86fc; --magic-gold: #ffcc33; }
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--deep-black); color: #fff; line-height: 1.6; }
+
+        .sale-banner { background: var(--magic-gold); color: #000; padding: 10px; text-align: center; font-weight: 900; font-size: 0.75rem; position: sticky; top: 0; z-index: 1100; letter-spacing: 1px; }
+        header { padding: 40px 20px; text-align: center; border-bottom: 1px solid #222; background: linear-gradient(to bottom, #111, #050505); }
+        .logo { font-size: 2.8rem; color: var(--magic-purple); text-shadow: 0 0 15px var(--magic-purple); letter-spacing: 5px; font-weight: 900; }
+        .subtitle { color: var(--magic-gold); font-size: 0.9rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 2px; }
+
+        .magic-nav { 
+            display: flex; justify-content: center; gap: 10px; padding: 15px; 
+            background: rgba(5,5,5,0.9); position: sticky; top: 35px; z-index: 1000;
+            overflow-x: auto; border-bottom: 1px solid #333; backdrop-filter: blur(10px);
+        }
+        .magic-nav a { text-decoration: none; color: #fff; padding: 8px 16px; border: 1px solid var(--magic-purple); border-radius: 50px; font-size: 0.8rem; white-space: nowrap; }
+
+        .section-title { padding: 50px 5% 10px; color: var(--magic-gold); font-size: 1.4rem; text-transform: uppercase; border-bottom: 1px solid #222; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(165px, 1fr)); gap: 15px; padding: 20px 5%; }
+        .card { background: var(--card-bg); border-radius: 15px; padding: 12px; text-align: center; border: 1px solid #222; position: relative; }
+        .card img { width: 100%; border-radius: 10px; height: 190px; object-fit: cover; background: #222; }
+        
+        .badge { position: absolute; top: 10px; left: -25px; background: var(--magic-gold); color: #000; font-size: 0.6rem; font-weight: bold; padding: 5px 30px; transform: rotate(-45deg); text-transform: uppercase; }
+        .price-tag { color: var(--magic-gold); font-weight: bold; margin: 8px 0; font-size: 1.1rem; }
+        .btn { width: 100%; padding: 12px; background: var(--magic-purple); border: none; border-radius: 10px; font-weight: bold; cursor: pointer; color: #000; text-transform: uppercase; font-size: 0.8rem; }
+
+        .reviews-container { padding: 20px 5%; display: flex; gap: 15px; overflow-x: auto; padding-bottom: 30px; }
+        .review-card { min-width: 260px; background: #151515; padding: 20px; border-radius: 15px; border-bottom: 3px solid var(--magic-purple); }
+
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; padding: 20px; }
+        .modal-body { background: #111; padding: 30px; border-radius: 20px; width: 100%; max-width: 400px; border: 1px solid var(--magic-purple); text-align: center; }
+        .input { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid #333; color: #fff; border-radius: 8px; font-size: 1rem; }
+    </style>
+</head>
+<body>
+
+    <div class="sale-banner">🎁 15% OFF ALL CUSTOM NAMES • NATIONWIDE DELIVERY 🚚</div>
+
+    <header>
+        <div class="logo">MAG’BEADS</div>
+        <div class="subtitle">Premium Handmade Jewelry • Lagos</div>
+    </header>
+
+    <nav class="magic-nav">
+        <a href="#luxury-area">👑 Luxury</a>
+        <a href="#waist-area">💃 Waist</a>
+        <a href="#bracelet-area">✨ Bracelets</a>
+        <a href="#neck-area">📿 Neck</a>
+        <a href="#anklet-area">👣 Anklets</a>
+        <a href="#thigh-area">🔗 Thigh</a>
+        <a href="#extra-area">📱 Straps</a>
+    </nav>
+
+    <div id="luxury-area">
+        <div class="section-title">✨ Luxury Collection</div>
+        <div class="grid" id="luxuryDisplay"></div>
+    </div>
+
+    <div id="reviews-area">
+        <div class="section-title">💬 Customer Love</div>
+        <div class="reviews-container">
+            <div class="review-card">
+                <p style="font-style: italic; color:#bbb;">"Best quality beads in Lagos. They look even better in person!"</p>
+                <p style="color:var(--magic-gold); font-weight:bold; margin-top:10px;">— Titi, V.I.</p>
+            </div>
+            <div class="review-card">
+                <p style="font-style: italic; color:#bbb;">"The custom name is so neat. I'm ordering for my sisters too."</p>
+                <p style="color:var(--magic-gold); font-weight:bold; margin-top:10px;">— Sarah, Lekki</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="waist-area" class="section-title">Waist beads</div>
+    <div class="grid" id="waistDisplay"></div>
+
+    <div id="bracelet-area" class="section-title">Bracelets</div>
+    <div class="grid" id="braceletDisplay"></div>
+
+    <div id="neck-area" class="section-title">Neck beads</div>
+    <div class="grid" id="neckDisplay"></div>
+
+    <div id="anklet-area" class="section-title">Anklets</div>
+    <div class="grid" id="ankletDisplay"></div>
+
+    <div id="thigh-area" class="section-title">Thigh beads</div>
+    <div class="grid" id="thighDisplay"></div>
+
+    <div id="extra-area" class="section-title">Phone Straps & Extras</div>
+    <div class="grid" id="extraDisplay"></div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-body">
+            <h3 id="pTitle" style="color:var(--magic-purple)"></h3>
+            <p id="priceDisplayArea" style="margin: 10px 0; color: #ccc;"></p>
+            <input type="text" id="sizeBox" class="input" placeholder="Size (e.g. 32 inches)">
+            <div style="margin: 10px 0; background: #1a1a1a; padding: 10px; border-radius: 8px;">
+                <input type="checkbox" id="customCheck" onchange="calc()"> 
+                <label style="font-size:0.8rem;">Add Custom Name? (+₦500)</label>
+                <input type="text" id="nameBox" class="input" placeholder="Type name here">
+            </div>
+            <h2 id="totalDisp" style="color:var(--magic-gold); margin: 15px 0;"></h2>
+            <button class="btn" onclick="sendWA()">ORDER VIA WHATSAPP</button>
+            <button onclick="closeMod()" style="color:red; background:none; border:none; margin-top:15px; cursor:pointer;">Cancel</button>
+        </div>
+    </div>
+
+<script>
+    // --- 1. SETTINGS ---
+    const basePrices = { "Waist Bead": 2500, "Bracelet": 1500, "Neck Bead": 3500, "Anklet": 2000, "Thigh Bead": 3000, "Phone Strap": 1000, "Luxury": 8000 };
+    const specialPrices = { 151: 3000, 152: 4500, 10: 12000, 11: 15000 };
+    const luxuryItems = [10, 11, 152]; 
+
+    // --- 2. BUILDER ---
+    function fillBeads(containerId, startNum, endNum, categoryName) {
+        const container = document.getElementById(containerId);
+        if(!container) return;
+        let content = "";
+        for (let i = startNum; i <= endNum; i++) {
+            let itemPrice = specialPrices[i] ? specialPrices[i] : basePrices[categoryName];
+            content += `<div class="card">
+                <img src="${i}.jpg" alt="${categoryName}" onerror="this.src='https://via.placeholder.com/180/111/fff?text=IMG+${i}'">
+                <p style="font-size:0.8rem; margin-top:10px;">${categoryName} #${i}</p>
+                <p class="price-tag">₦${itemPrice.toLocaleString()}</p>
+                <button class="btn" onclick="openMod('${categoryName}', ${i}, ${itemPrice})">ORDER</button>
+            </div>`;
+        }
+        container.innerHTML = content;
+    }
+
+    function fillLuxury() {
+        const container = document.getElementById('luxuryDisplay');
+        let content = "";
+        luxuryItems.forEach(num => {
+            let price = specialPrices[num] ? specialPrices[num] : 8000;
+            content += `<div class="card" style="border: 2px solid var(--magic-gold)">
+                <div class="badge">Luxury</div>
+                <img src="${num}.jpg" alt="Luxury" onerror="this.src='https://via.placeholder.com/180/111/fff?text=GOLD+${num}'">
+                <p style="font-size:0.8rem; margin-top:10px;">Luxury Piece #${num}</p>
+                <p class="price-tag">₦${price.toLocaleString()}</p>
+                <button class="btn" onclick="openMod('Luxury Bead', ${num}, ${price})">ORDER</button>
+            </div>`;
+        });
+        container.innerHTML = content;
+    }
+
+    // --- 3. THE FULL RESTORED LIST ---
+    fillLuxury();
+    fillBeads('waistDisplay', 151, 200, "Waist Bead"); // Waist beads ARE HERE starting at 151
+    fillBeads('braceletDisplay', 2, 50, "Bracelet");   // Bracelets ARE HERE
+    fillBeads('neckDisplay', 101, 150, "Neck Bead");  // Neck beads ARE HERE
+    fillBeads('ankletDisplay', 51, 75, "Anklet");     // Anklets ARE HERE
+    fillBeads('thighDisplay', 76, 100, "Thigh Bead");  // Thigh beads ARE HERE
+    fillBeads('extraDisplay', 201, 215, "Phone Strap"); // Extras ARE HERE
+
+    // --- 4. LOGIC ---
+    let currentItem = ""; let currentItemPrice = 0;
+    function openMod(category, num, price) { 
+        currentItem = category + " #" + num; currentItemPrice = price;
+        document.getElementById('pTitle').innerText = currentItem; 
+        document.getElementById('priceDisplayArea').innerText = "Item Price: ₦" + price.toLocaleString();
+        calc(); document.getElementById('orderModal').style.display = 'flex'; 
+    }
+    function closeMod() { document.getElementById('orderModal').style.display = 'none'; }
+    function calc() {
+        let base = currentItemPrice;
+        let extra = document.getElementById('customCheck').checked ? 500 : 0;
+        document.getElementById('totalDisp').innerText = "Total: ₦" + (base + extra).toLocaleString();
+    }
+    function sendWA() {
+        let size = document.getElementById('sizeBox').value || "Not Specified";
+        let name = document.getElementById('nameBox').value || "None";
+        let total = document.getElementById('totalDisp').innerText;
+        let msg = `Hello MAG’BEADS!\n\nOrder: ${currentItem}\nSize: ${size}\nName: ${name}\n\nFinal ${total}`;
+        window.open("https://wa.me/2347032391971?text=" + encodeURIComponent(msg));
+    }
+</script>
+</body>
+</html>
